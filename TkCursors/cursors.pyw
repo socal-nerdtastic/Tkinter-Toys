@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-#
-#  Copyright 2021 j.brauer <j.brauer@bruker.com>
-#
-#  This program is internal property of Bruker Nano, and may not be distributed.
-#  2021-10-14-1240.py
-#
 
 # From: https://www.tcl.tk/man/tcl8.4/TkCmd/cursors.html
 cursors = dict(
@@ -140,7 +134,10 @@ cursors = dict(
     spinning"""
 )
 
-import tkinter as tk
+try:
+    import tkinter as tk
+except ImportError:
+    import Tkinter as tk
 
 COLS = 8
 root = tk.Tk()
@@ -154,8 +151,6 @@ for section in cursors:
                 lbl = tk.Label(tk_section, text=cur, cursor=cur)
             except Exception as e:
                 lbl = tk.Label(tk_section, text=cur, fg='red')
-                # ~ print(e, "could not create:", repr(cur))
-            row, col = divmod(i, COLS)
-            lbl.grid(row=row, column=col)
+            lbl.grid(row=i//COLS, column=i%COLS)
 
 root.mainloop()
