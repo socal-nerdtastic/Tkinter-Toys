@@ -2,10 +2,6 @@
 
 def f(obj):
     """list attributes of an object"""
-    print(*(f"{x}: {getattr(obj,x)}" for x in dir(obj) if not x.startswith("_")), sep="\n")
-
-def f(obj):
-    """list attributes of an object"""
     for key in dir(obj):
         if not key.startswith("_"):
             value = getattr(obj,key)
