@@ -20,3 +20,4 @@ Random examples of tkinter snippets
 ## Some small fun programs
 * [**Sudoku**](demoprograms/sudoku_gui) = Draws an even grid. Mostly a demo of the undocumented "uniform" feature.
 * [**Login window**](demoprograms/loginwindow) = A demo of how to swap frames, in this case to make a password login window before showing the main application.
+* [**Word map**](demoprograms/word_map) = Place words on a canvas, move them around, then calculate the distance between them.
