@@ -12,6 +12,7 @@ Random examples of tkinter snippets
 * [**Autocomplete**](widgets/entry_autocomplete/) = An entry widget that you can provide with a list of options and have it provide suggestions while typing.
 * [**Select Labelframe**](widgets/labelframe_select/) = A labelframe with a checkbutton, so that you can disable or collapse the content.
 * [**GeometryKeeper**](widgets/geometry_keeper/) = Code to remember the window geometry for the next time you open the program.
+* [**Dualchoice**](widgets/listbox_dualchoice/) = The classic double listbox to choose a number of values and an order.
 
 ## Some tools
 * [**Cursors**](tools/tk_cursors) = Show all the available cursors available in tkinter.
