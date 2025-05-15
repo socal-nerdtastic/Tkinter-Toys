@@ -1,4 +1,5 @@
-# TkExamples
+# Tkinter-Toys
+
 Random examples of tkinter snippets
 
 ## Some widgets
@@ -9,6 +10,7 @@ Random examples of tkinter snippets
 * [**Text hyperlink**](widgets/text_hyperlink) = Demo of how to make a hyperlink in a Text widget.
 * [**marquee**](widgets/marquee) = A Label that scrolls text left to right like a marquee.
 * [**Autocomplete**](widgets/entry_autocomplete/) = An entry widget that you can provide with a list of options and have it provide suggestions while typing.
+* [**Select Labelframe**](widgets/labelframe_select/) = A labelframe with a checkbutton, so that you can disable or collapse the content.
 
 ## Some tools
 * [**Cursors**](tools/tk_cursors) = Show all the available cursors available in tkinter.
