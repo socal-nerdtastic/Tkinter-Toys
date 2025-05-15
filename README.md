@@ -11,6 +11,7 @@ Random examples of tkinter snippets
 * [**marquee**](widgets/marquee) = A Label that scrolls text left to right like a marquee.
 * [**Autocomplete**](widgets/entry_autocomplete/) = An entry widget that you can provide with a list of options and have it provide suggestions while typing.
 * [**Select Labelframe**](widgets/labelframe_select/) = A labelframe with a checkbutton, so that you can disable or collapse the content.
+* [**GeometryKeeper**](widgets/geometry_keeper/) = Code to remember the window geometry for the next time you open the program.
 
 ## Some tools
 * [**Cursors**](tools/tk_cursors) = Show all the available cursors available in tkinter.
