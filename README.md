@@ -3,16 +3,78 @@
 Random examples of tkinter snippets
 
 ## Some widgets
-* [**Rounded corners**](widgets/tk_rounded_corners) = A tkinter main window with rounded corners (Windows only).
-* [**progressbar demo**](widgets/progressbar_pause) = A demo of pausing a progressbar and changing the color.
-* [**long press**](widgets/longpress) = A tkinter button or keyboard key that repeats the same command over and over as long as the button is held down.
-* [**grow text**](widgets/text_autogrow) = A Text or ScrolledText widget that will expand vertically depending on how much text is in it.
-* [**Text hyperlink**](widgets/text_hyperlink) = Demo of how to make a hyperlink in a Text widget.
-* [**marquee**](widgets/marquee) = A Label that scrolls text left to right like a marquee.
-* [**Autocomplete**](widgets/entry_autocomplete/) = An entry widget that you can provide with a list of options and have it provide suggestions while typing.
-* [**Select Labelframe**](widgets/labelframe_select/) = A labelframe with a checkbutton, so that you can disable or collapse the content.
-* [**GeometryKeeper**](widgets/geometry_keeper/) = Code to remember the window geometry for the next time you open the program.
-* [**Dualchoice**](widgets/listbox_dualchoice/) = The classic double listbox to choose a number of values and an order.
+
+<table style="padding:10px">
+  <tr>
+    <td>
+        <img src="widgets/tk_rounded_corners/roundedcorners.png" width=200px><br>
+        <b><a href="widgets/tk_rounded_corners">Rounded corners</a></b><br>
+        A tkinter main window with rounded corners (Windows only).
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/progressbar_pause/pause_progress.png" width=200px><br>
+        <b><a href="widgets/progressbar_pause">Progressbar demo</a></b><br>
+        A demo of pausing and changing the color of a progressbar.
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/longpress/longpress.png" width=200px><br>
+        <b><a href="widgets/longpress/">Long Press</a></b><br>
+        A tkinter button or keyboard key that repeats the same command over and over as long as the button is held down.
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img src="widgets/text_autogrow/autogrow.png" width=200px><br>
+        <b><a href="widgets/text_autogrow/">Grow Text</a></b><br>
+        A Text or ScrolledText widget that will expand vertically depending on how much text is in it.
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/text_hyperlink/text_hyperlink.png" width=200px><br>
+        <b><a href="widgets/text_hyperlink/">Text Hyperlink</a></b><br>
+        Demo of how to make a hyperlink in a Text widget.
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/marquee/marquee.png" width=200px><br>
+        <b><a href="widgets/marquee/">Marquee</a></b><br>
+        A Label that scrolls text left to right like a marquee.
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img src="widgets/entry_autocomplete/imgs/Autocomplete1.png" width=200px><br>
+        <b><a href="widgets/entry_autocomplete/">Autocomplete</a></b><br>
+        An entry widget that you can provide with a list of options and have it provide suggestions while typing.
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/labelframe_select/labelframe_select.png" width=200px><br>
+        <b><a href="widgets/labelframe_select/">Select Labelframe</a></b><br>
+        A labelframe with a checkbutton, so that you can disable or collapse the content.
+    </td>
+    <td width=30></td>
+    <td>
+        <img src="widgets/listbox_dualchoice/listbox_dualchoice.png" width=200px><br>
+        <b><a href="widgets/listbox_dualchoice/">Dualchoice</a></b><br>
+        The classic double listbox to choose a number of values and an order.
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <b><a href="widgets/geometry_keeper/">Geometry Keeper</a></b><br>
+        Code to remember the window geometry for the next time you open the program.
+    </td>
+    <td width=30></td>
+    <td>
+    </td>
+    <td width=30></td>
+    <td>
+    </td>
+  </tr>
+</table>
 
 ## Some tools
 * [**Cursors**](tools/tk_cursors) = Show all the available cursors available in tkinter.

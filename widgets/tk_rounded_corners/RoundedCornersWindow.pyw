@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.11
 #
 #  Copyright 2025 j.brauer <j.brauer@bruker.com>
 #
@@ -34,14 +34,26 @@ CORNER_RADIUS = 20
 class RoundedTk(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.wintitle = "my example app"
         self.content = tk.Frame(self)
         self.content.grid(row=1, column=1)
         self.make_border()
         self.overrideredirect(True)
+        self.old_pos=None
+        self.bind('<Button1-Motion>', self.on_motion)
+
         if platform.system() == "Windows":
             self.wm_attributes("-transparentcolor", ALPHA_COLOR)
         else:
             print("Linux and Mac do not support transparent windows")
+    def on_motion(self, event=None):
+        curr_pointer_x, curr_pointer_y = self.winfo_pointerxy()
+        if self.old_pos:
+            old_pointer_x, old_pointer_y = self.old_pos
+            move_x = curr_pointer_x-old_pointer_x
+            move_y = curr_pointer_y-old_pointer_y
+            self.geometry(f"+{self.winfo_x()+move_x}+{self.winfo_y()+move_y}")
+        self.old_pos = curr_pointer_x, curr_pointer_y
 
     def color_name_to_rgb(self, color):
         if len(color) != 7:
@@ -62,7 +74,8 @@ class RoundedTk(tk.Tk):
             CORNER_RADIUS)
 
         self.l_img(fg_color, left_top).grid(row=0, column=0, sticky='e') # top left
-        self.l_img(fg_color).grid(row=0, column=1, sticky='nsew') # top
+        # ~ self.l_img(fg_color).grid(row=0, column=1, sticky='nsew') # top
+        tk.Label(self, text=self.wintitle, bg=fg_color).grid(row=0, column=1, sticky='nsew') # top
         self.l_img(fg_color, right_top).grid(row=0, column=2, sticky='w') # top right
 
         self.l_img(fg_color).grid(row=1, column=0, sticky='nsew') # left
@@ -73,7 +86,7 @@ class RoundedTk(tk.Tk):
         self.l_img(fg_color, right_bottom).grid(row=2, column=2, sticky='w')
 
 root = RoundedTk().content
-tk.Label(root, text="example app").pack()
-tk.Listbox(root).pack()
+# ~ tk.Label(root, text="example app").pack()
+tk.Text(root, width=20, height=5).pack()
 ttk.Button(root, text="Quit", command=root.quit).pack()
 root.mainloop()

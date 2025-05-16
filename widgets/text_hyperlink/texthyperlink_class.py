@@ -40,15 +40,15 @@ class HyperlinkText(tk.Text):
 def demo():
     r = tk.Tk()
     t = HyperlinkText()
-    
+
     t.insert(tk.END, "Check out the best ")
     t.insert_hyperlink(tk.END, "python help site", "https://learnpython.reddit.com")
     t.insert(tk.END, " on the internet!\n")
-    
+
     t.insert(tk.END, "Open the ")
-    t.insert_locallink(tk.END, "current working directry", ".")
-    t.insert(tk.END, " that this program is using.\n")
-    
+    t.insert_locallink(tk.END, "current working dir", ".")
+    t.insert(tk.END, " that this program is using (windows only).")
+
     t.pack(fill=tk.X, expand=True)
     t.focus()
     r.mainloop()
