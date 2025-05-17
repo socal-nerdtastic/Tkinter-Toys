@@ -64,11 +64,14 @@ Random examples of tkinter snippets
   </tr>
   <tr>
     <td>
-        <b><a href="widgets/geometry_keeper/">Geometry Keeper</a></b><br>
-        Code to remember the window geometry for the next time you open the program.
+      <img src="widgets/listbox_multi/multilistbox.png" width=200px><br>
+      <b><a href="widgets/listbox_multi/">Multi-column Listbox</a></b><br>
+      A multicolumn Listbox made by packing normal listboxes together with a common scrollbar.
     </td>
     <td width=30></td>
     <td>
+        <b><a href="widgets/geometry_keeper/">Geometry Keeper</a></b><br>
+        Code to remember the window geometry for the next time you open the program.
     </td>
     <td width=30></td>
     <td>
@@ -91,3 +94,4 @@ Random examples of tkinter snippets
 * [**Image to source**](https://github.com/socal-nerdtastic/TkImageConvert) = Make tkinter images embedded into the source code.
 * [**Screenshot clipper**](https://github.com/socal-nerdtastic/ScreenshotClip) = Screenshot and clip tool
 * [**Measure tool**](demoprograms/measure_tool) = A tool to measure random lines drawn on an image.
+* [**Hex Viewer tool**](https://github.com/socal-nerdtastic/HexView) = Vey basic hex viewer that allows you to set the line length.
