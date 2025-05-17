@@ -75,6 +75,9 @@ Random examples of tkinter snippets
     </td>
     <td width=30></td>
     <td>
+    <img src="widgets/animated_gif/label_animated.png" width=200px><br>
+    <b><a href="widgets/animated_gif/">Multi-column Listbox</a></b><br>
+    A Label that displays images, and plays them if they are gifs.
     </td>
   </tr>
 </table>
