@@ -93,6 +93,9 @@ class ScrolledTextHyperlink(ScrolledText, TextHyperlinkMixin):
     pass
 
 ##DEMO
+def demo_func(event=None):
+    messagebox.showinfo("Hello world!", "You have run a custom function!")
+
 def demo():
     r = tk.Tk()
     t = ScrolledTextHyperlink() # just like normal Text, but with added magic.
@@ -104,6 +107,10 @@ def demo():
     t.insert(tk.END, "Open the ")
     t.insert_link(tk.END, "current working directry", ".")
     t.insert(tk.END, " that this program is using.\n")
+
+    t.insert(tk.END, "Run a ")
+    t.insert_link(tk.END, "custom python function", demo_func)
+    t.insert(tk.END, " from a click!\n")
 
     t.insert_md_line(tk.END, 'My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy"). What is yours?\n\n')
 
