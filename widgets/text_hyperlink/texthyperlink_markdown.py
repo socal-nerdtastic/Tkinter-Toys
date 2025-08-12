@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# version 2025-05-15
+# version 2025-08-12
 
 import webbrowser
 from functools import partial
@@ -15,7 +15,7 @@ import re
 # todo: add link tooltip (alt text) support
 # todo: add support for <bracketlinks>
 
-find_markdown = re.compile(r"\[(.*)\]\((.*)\)")
+find_markdown = re.compile(r"\[(.*)\]\((.*?)\)")
 class TextHyperlinkMixin:
     """Add a method to the Text widget to insert a hyperlink"""
     links = 0
@@ -100,12 +100,12 @@ def demo():
     t.insert(tk.END, " on the internet!\n")
 
     t.insert(tk.END, "Open the ")
-    t.insert_link(tk.END, "current working directory", ".")
-    t.insert(tk.END, " that this program is using (windows only).\n")
+    t.insert_link(tk.END, "current working directry", ".")
+    t.insert(tk.END, " that this program is using.\n")
 
     t.insert_md_line(tk.END, 'My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy"). What is yours?\n\n')
 
-    t.insert_md_line(tk.END, 'If you want to copy something [click here](copy "some data in your clipboard").\n\n')
+    t.insert_md_line(tk.END, 'If you want to copy something [click here](copy "some data in your clipboard"). some other (parenthesized data) goes here.\n\n')
 
     t.pack(fill=tk.X, expand=True)
     t.focus()
