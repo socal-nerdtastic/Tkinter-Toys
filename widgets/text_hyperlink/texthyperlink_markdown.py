@@ -60,6 +60,8 @@ class TextHyperlinkMixin:
         self.tag_configure(tagname, foreground="blue", underline=True)
         self.tag_bind(tagname, '<Enter>', self.on_enter)
         self.tag_bind(tagname, '<Leave>', self.on_leave)
+        if not callable(command):
+            command = partial(self.on_click_open, command)
         self.tag_bind(tagname, '<1>', command)
         start = self.index("end-1c" if index.lower() == tk.END else index)
         self.insert(start, text)
