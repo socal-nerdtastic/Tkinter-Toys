@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# version 2025-05-15
+# version 2025-08-18
 
 import webbrowser
 from functools import partial
@@ -10,12 +10,14 @@ from tkinter import messagebox
 from tkinter.scrolledtext import ScrolledText
 import re
 
-# todo: add support for multiple links in md line
+# syntax: My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+# note! the link text cannot contain [] symbols, and the link text cannot contain () symbols!
+
 # todo: add support for \n in the lines
 # todo: add link tooltip (alt text) support
 # todo: add support for <bracketlinks>
 
-find_markdown = re.compile(r"\[(.*)\]\((.*)\)")
+find_markdown = re.compile(r"\[(.*?)\]\((.*?)\)")
 class TextHyperlinkMixin:
     """Add a method to the Text widget to insert a hyperlink"""
     links = 0
@@ -23,7 +25,7 @@ class TextHyperlinkMixin:
         """markdown format
         My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
         """
-        # https://www.markdownguide.org/basic-syntax/
+        # https://www.markdownguide.org/basic-syntax/#links
         m = find_markdown.search(text)
         if not m: # no link found
             return self.insert(index, text)
@@ -51,7 +53,7 @@ class TextHyperlinkMixin:
             link_command = partial(self.on_click_open, link_target)
         self.insert_link(f"{row}.{col}", link_text, link_command, link_tooltip)
         col += len(link_text)
-        self.insert(f"{row}.{col}", suffix)
+        self.insert_md_line(f"{row}.{col}", suffix)
 
     def insert_link(self:tk.Text, index:str, text:str, command:callable, tooltip:str=None):
         # currently does not support newlines in the text
@@ -60,6 +62,8 @@ class TextHyperlinkMixin:
         self.tag_configure(tagname, foreground="blue", underline=True)
         self.tag_bind(tagname, '<Enter>', self.on_enter)
         self.tag_bind(tagname, '<Leave>', self.on_leave)
+        if not callable(command):
+            command = partial(self.on_click_open, command)
         self.tag_bind(tagname, '<1>', command)
         start = self.index("end-1c" if index.lower() == tk.END else index)
         self.insert(start, text)
@@ -91,6 +95,9 @@ class ScrolledTextHyperlink(ScrolledText, TextHyperlinkMixin):
     pass
 
 ##DEMO
+def demo_func(event=None):
+    messagebox.showinfo("Hello world!", "You have run a custom function!")
+
 def demo():
     r = tk.Tk()
     t = ScrolledTextHyperlink() # just like normal Text, but with added magic.
@@ -100,12 +107,18 @@ def demo():
     t.insert(tk.END, " on the internet!\n")
 
     t.insert(tk.END, "Open the ")
-    t.insert_link(tk.END, "current working directory", ".")
-    t.insert(tk.END, " that this program is using (windows only).\n")
+    t.insert_link(tk.END, "current working directry", ".")
+    t.insert(tk.END, " that this program is using.\n")
+
+    t.insert(tk.END, "Run a ")
+    t.insert_link(tk.END, "custom python function", demo_func)
+    t.insert(tk.END, " from a click!\n")
 
     t.insert_md_line(tk.END, 'My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy"). What is yours?\n\n')
 
-    t.insert_md_line(tk.END, 'If you want to copy something [click here](copy "some data in your clipboard").\n\n')
+    t.insert_md_line(tk.END, 'If you want to copy something [click here](copy "some data in your clipboard"). some other (parenthesized data) goes here.\n\n')
+
+    t.insert_md_line(tk.END, 'multiple links: [click here](copy "some data in your clipboard"), or [click here](copy "more data") goes here.\n\n')
 
     t.pack(fill=tk.X, expand=True)
     t.focus()
