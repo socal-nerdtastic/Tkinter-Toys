@@ -7,6 +7,7 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter.scrolledtext import ScrolledText
+from tkinter import messagebox
 from tkinter import ttk
 from functools import partial
 
@@ -80,10 +81,13 @@ class GUI(tk.Frame):
         fn = askopenfilename(filetypes = (("image files",("*.png", "*.jpg")),("all files","*.*")))
         if not fn: return # user cancelled
         self.clear()
-        self.filename_lbl.config(text=fn)
-        self.image = tk.PhotoImage(file=fn)
-        img_ref= self.c.create_image(0,0,image=self.image,anchor="nw")
-        self.refs.append(img_ref)
+        try:
+            self.filename_lbl.config(text=fn)
+            self.image = tk.PhotoImage(file=fn)
+            img_ref= self.c.create_image(0,0,image=self.image,anchor="nw")
+            self.refs.append(img_ref)
+        except Exception as e:
+            messagebox.showerror("LOAD ERROR", f"Could not load the file\n{fn}\n\n{type(e)} {e}\n\nTry converting the file to .png type.")
 
 delete_graphic = '''\
 R0lGODlhDgANAMZBAP4AAP8AAP8BAf8DA/8EBP8GBv4ICP8ICP8QEP8REf8UFP8dHf4hIf8hIf8j
